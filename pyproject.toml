@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lcbo-opt"
+version = "0.1.0"
+description = "Localized constrained Bayesian optimization with lightweight benchmark utilities."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "LCBO-OPT authors" }
+]
+dependencies = [
+  "torch",
+  "gpytorch",
+  "numpy",
+  "scipy",
+]
+
+[project.optional-dependencies]
+rl = [
+  "gymnasium[mujoco]",
+]
+test = [
+  "pytest",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lcbo_opt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
