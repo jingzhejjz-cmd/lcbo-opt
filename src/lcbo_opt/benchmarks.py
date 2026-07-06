@@ -424,7 +424,7 @@ class HalfCheetahBenchmark:
                 steps += 1
                 if terminated or truncated:
                     break
-            if steps < self.horizon:
+            if steps < self.horizon and not truncated:
                 ctrl_cost_total += (self.horizon - steps) * self.max_step_cost
             sum_obj += -(velocity_reward / self.horizon)
             sum_constraint += ctrl_cost_total / self.ctrl_cost_limit - 1.0

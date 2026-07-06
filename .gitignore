@@ -10,3 +10,6 @@ dist/
 *.egg-info/
 examples/*_log_*.json
 data/
+result/
+.vscode/
+lcbo_origin/
